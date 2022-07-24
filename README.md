@@ -1,4 +1,4 @@
-# Cotacao-Moedas
+# Cotação-Moedas
  Cotação de moedas com Python atrasves do consumo da API https://docs.awesomeapi.com.br/api-de-moedas, coleta o valor atual das Moedas Dolar, Euro e BitCoin para BRL(Real Brasileiro).
 
 # Instalar a biblioteca atraves do comando:
