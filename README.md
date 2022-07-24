@@ -6,7 +6,8 @@
 pip install requests
 ```
 
-https://github.com/FigueredoDev/Cotacao-Moedas-Python/blob/main/image.png
+![alt text](https://github.com/FigueredoDev/Cotacao-Moedas-Python/blob/main/image.png)
+
 
 
 # Projeto realizado a titulo de estudo da linguagem Python
