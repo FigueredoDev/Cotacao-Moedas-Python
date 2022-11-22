@@ -1,41 +1,42 @@
+from tkinter import Button, Label, Tk
+
 import requests
-from tkinter import *
 
 
-def pegar_cotacoes():
-    requisicao = requests.get(
+def get_quotation():
+    request = requests.get(
         "https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL")
 
-    requisicao_dic = requisicao.json()
+    request_dic = request.json()
 
-    cotacao_dolar = requisicao_dic['USDBRL']['bid']
-    cotacao_euro = requisicao_dic['EURBRL']['bid']
-    cotacao_btc = requisicao_dic['BTCBRL']['bid']
+    dollar = request_dic['USDBRL']['bid']
+    euro = request_dic['EURBRL']['bid']
+    bitcoin = request_dic['BTCBRL']['bid']
 
-    contacao_atual = f'''
-    Valor atual das moedas: 
-    Dólar: {cotacao_dolar}
-    Euro: {cotacao_euro}
-    BTC: {cotacao_btc}'''
+    current_quote = f'''
+    Valor atual das moedas:
+    Dólar: {dollar}
+    Euro: {euro}
+    BTC: {bitcoin}'''
 
-    # Atribundo valor ao campo text da cotacao
-    texto_cotacao["text"] = contacao_atual
+    # Atribuindo valor ao campo text da cotação
+    text_quote["text"] = current_quote
 
 
-#   Interface grafica
+#   Interface gráfica
 janela = Tk()
 
 janela.title("Cotação atual das Moedas")
 
-texto_orientacao = Label(
-    janela, text="Clique no botão para ver as cotaçẽs das moedas")
+viewer_text = Label(
+    janela, text="Clique no botão para ver as cotações das moedas")
 # Posição do item na janela
-texto_orientacao.grid(column=0, row=0, padx=10, pady=5)
+viewer_text.grid(column=0, row=0, padx=10, pady=5)
 
-bota = Button(janela, text="Buscar cotações", command=pegar_cotacoes)
-bota.grid(column=0, row=2, padx=10, pady=10)
+button = Button(janela, text="Buscar cotações", command=get_quotation)
+button.grid(column=0, row=2, padx=10, pady=10)
 
-texto_cotacao = Label(janela, text="")
-texto_cotacao.grid(column=0, row=1, padx=10, pady=5)
+text_quote = Label(janela, text="")
+text_quote.grid(column=0, row=1, padx=10, pady=5)
 
 janela.mainloop()
